@@ -117,10 +117,12 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: rgb(var(--color-border) / 1);
+    outline-color: rgb(var(--color-ring) / 0.5);
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: rgb(var(--color-background) / 1);
+    color: rgb(var(--color-foreground) / 1);
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -131,7 +133,7 @@
   select:not(:disabled),
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
+    cursor: pointer;
   }
 
   /* Typography */
@@ -166,100 +168,253 @@
    * Custom container utility that centers content and adds responsive padding.
    */
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .container-sm {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-sm {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-sm {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .container-lg {
-    @apply max-w-full mx-auto px-4 sm:px-6 lg:px-8;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-lg {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-lg {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   /* Luxury section spacing */
   .section-padding {
-    @apply py-12 sm:py-16 lg:py-20;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  @media (min-width: 640px) {
+    .section-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
   }
 
   .section-padding-sm {
-    @apply py-8 sm:py-10 lg:py-12;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  @media (min-width: 640px) {
+    .section-padding-sm {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding-sm {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
   }
 
   .section-padding-lg {
-    @apply py-16 sm:py-20 lg:py-24;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @media (min-width: 640px) {
+    .section-padding-lg {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding-lg {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
   }
 
   /* Luxury button styling */
   .btn-luxury {
-    @apply px-8 py-3 bg-accent text-accent-foreground rounded-md hover:bg-accent/90 transition-all duration-200 uppercase tracking-widest text-sm;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: rgb(var(--color-accent) / 1);
+    color: rgb(var(--color-accent-foreground) / 1);
+    border-radius: 0.375rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
     font-weight: 600;
+  }
+  .btn-luxury:hover {
+    background-color: rgb(var(--color-accent) / 0.9);
   }
 
   .btn-luxury-outline {
-    @apply px-8 py-3 border-2 border-accent text-accent rounded-md hover:bg-accent hover:text-accent-foreground transition-all duration-200 uppercase tracking-widest text-sm;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border: 2px solid rgb(var(--color-accent) / 1);
+    color: rgb(var(--color-accent) / 1);
+    border-radius: 0.375rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
     font-weight: 600;
+  }
+  .btn-luxury-outline:hover {
+    background-color: rgb(var(--color-accent) / 1);
+    color: rgb(var(--color-accent-foreground) / 1);
   }
 
   /* Luxury card styling */
   .card-luxury {
-    @apply bg-card text-card-foreground rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-200;
+    background-color: rgb(var(--color-card) / 1);
+    color: rgb(var(--color-card-foreground) / 1);
+    border-radius: 0.5rem;
+    border: 1px solid rgb(var(--color-border) / 1);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+  .card-luxury:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   }
 
   /* Luxury gradient text */
   .text-gradient {
-    @apply bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent;
+    background: linear-gradient(to right, rgb(var(--color-accent) / 1), rgb(var(--color-accent) / 0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* Flex utilities with min-width fix */
   .flex {
-    @apply flex min-w-0 min-h-0;
+    display: flex;
+    min-width: 0;
+    min-height: 0;
   }
 
   /* Grid utilities */
   .grid {
-    @apply grid min-w-0 min-h-0;
+    display: grid;
+    min-width: 0;
+    min-height: 0;
   }
 }
 
 @layer utilities {
   /* Luxury spacing utilities */
   .space-luxury-xs {
-    @apply space-y-4;
+    --space-y: 1rem;
+  }
+  .space-luxury-xs > * + * {
+    margin-top: var(--space-y);
   }
 
   .space-luxury-sm {
-    @apply space-y-6;
+    --space-y: 1.5rem;
+  }
+  .space-luxury-sm > * + * {
+    margin-top: var(--space-y);
   }
 
   .space-luxury-md {
-    @apply space-y-8;
+    --space-y: 2rem;
+  }
+  .space-luxury-md > * + * {
+    margin-top: var(--space-y);
   }
 
   .space-luxury-lg {
-    @apply space-y-12;
+    --space-y: 3rem;
+  }
+  .space-luxury-lg > * + * {
+    margin-top: var(--space-y);
   }
 
   /* Text utilities */
   .text-luxury {
-    @apply text-lg leading-relaxed tracking-wide;
+    font-size: 1.125rem;
+    line-height: 1.625;
+    letter-spacing: 0.025em;
   }
 
   .text-luxury-sm {
-    @apply text-base leading-relaxed tracking-wide;
+    font-size: 1rem;
+    line-height: 1.625;
+    letter-spacing: 0.025em;
   }
 
   /* Transition utilities */
   .transition-luxury {
-    @apply transition-all duration-300 ease-out;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
   }
 
   /* Shadow utilities */
   .shadow-luxury {
-    @apply shadow-sm;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
 
   .shadow-luxury-lg {
-    @apply shadow-md;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   }
 }
