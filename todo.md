@@ -59,7 +59,9 @@
 - [ ] Create category management
 - [x] Create inventory management
 - [x] Create variant management (colors, sizes)
-- [ ] Create SKU management
+- [x] Create SKU management
+- [x] Connect products to real API
+- [x] Implement authorization checks
 
 ## Phase 7: Shopping Cart & Checkout
 - [x] Implement shopping cart state management
